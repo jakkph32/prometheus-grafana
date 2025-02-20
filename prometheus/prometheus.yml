@@ -19,11 +19,5 @@ scrape_configs:
   static_configs:
   - targets:
     - localhost:9090
-
-- job_name: FlowiseAI
-  static_configs:
-    - targets:
-        - localhost:4000
-        - localhost:8000
-  metrics_path: /api/v1/metrics
-  scheme: http
+    - localhost:4444
+    - localhost:4000
