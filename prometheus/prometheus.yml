@@ -1,6 +1,5 @@
 global:
   scrape_interval: 15s
-  
   scrape_timeout: 10s
   evaluation_interval: 15s
 alerting:
@@ -23,8 +22,8 @@ scrape_configs:
 
 - job_name: FlowiseAI
   static_configs:
-  - targets:
-    - localhost:4000
-    - localhost:4444
-  metrics_path: /api/v1/metrics/
+    - targets:
+        - localhost:4000
+        - localhost:8000
+  metrics_path: /api/v1/metrics
   scheme: http
