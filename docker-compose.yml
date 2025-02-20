@@ -29,7 +29,9 @@ services:
       - "3100:3100"
     volumes:
       - loki_data:/tmp/loki # Mount a named volume
-      - ./loki-config.yaml:/etc/loki/local-config.yaml # Mount the Loki config
+      - ./loki-config.yaml:/etc/local-config.yaml # Mount the Loki config
+    environment:
+      - LOKI_CONFIG_FILE=/etc/local-config.yaml
 
 volumes:
   prom_data:
