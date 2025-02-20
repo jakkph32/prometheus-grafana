@@ -10,8 +10,6 @@ alerting:
     scheme: http
     timeout: 10s
     api_version: v2
-  limits_config:
-    volume_enabled: true
 scrape_configs:
 - job_name: prometheus
   honor_timestamps: true

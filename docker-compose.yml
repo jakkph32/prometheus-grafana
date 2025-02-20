@@ -4,8 +4,9 @@ services:
     container_name: prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--log.level=debug'
     ports:
-      - 9090:9090
+      - 9090:9090/tcp
     restart: unless-stopped
     volumes:
       - ./prometheus:/etc/prometheus
