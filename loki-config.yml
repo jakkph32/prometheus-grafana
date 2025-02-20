@@ -1,4 +1,8 @@
 auth_enabled: false
+limits_config:
+  volume_enabled: true
+  pattern_ingester:
+  enabled: true
 
 server:
   http_listen_port: 3100
@@ -32,5 +36,3 @@ storage_config:
   filesystem:
     directory: /tmp/loki/chunks
 
-limits_config:
-  volume_enabled: true
