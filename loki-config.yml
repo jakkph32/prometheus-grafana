@@ -1,0 +1,36 @@
+auth_enabled: false
+
+server:
+  http_listen_port: 3100
+
+ingester:
+  lifecycler:
+    address: 127.0.0.1
+    ring:
+      kvstore:
+        store: inmemory
+      replication_factor: 1
+  chunk_idle_period: 1h       # After 1 hour, chunk will be flushed. Default is 1h.
+  max_chunk_age: 1h            # Maximum age of chunk before flushing. Default is 1h.
+  chunk_block_size: 262144     # Block size of chunks. Default is 262144.
+  chunk_retain_period: 72h     # How long to retain chunks after they have been flushed. Default is 72h.
+
+schema_config:
+  configs:
+    - from: 2020-05-15
+      store: boltdb-shipper
+      object_store: filesystem
+      schema: v11
+      index:
+        prefix: index_
+        period: 24h
+
+storage_config:
+  boltdb_shipper:
+    active_index_directory: /tmp/loki/index
+    shared_store: filesystem
+  filesystem:
+    directory: /tmp/loki/chunks
+
+limits_config:
+  volume_enabled: true
